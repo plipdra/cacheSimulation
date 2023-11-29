@@ -1,9 +1,6 @@
 CSARCH S12 Group 11 
 
-Group Members:
-DATARIO, Yasmin Audrey
-EDRALIN, Philippe Nikkos Keyan
-MENDOZA, Antonio Gabriel
+Group Members: Datario, Edralin, and Mendoza
 
 Type of cache memory: 8-way BSA + random replacement algorithm
 An 8-way Block Set Associative cache with a random replacement algorithm is a specific configuration of cache memory, oftentimes best explained as the middle ground of direct-mapping and full associative. In this design, the cache is divided into multiple sets, and each set can contain up to 8 blocks. When a processor accesses data, the cache determines which set the data could be in based on its memory address and then checks only those 8 blocks within that set, reducing the search space compared to a fully associative cache while avoiding the strict one-to-one mapping of a direct-mapped cache. The random replacement algorithm, applied when a new block needs to be loaded into a full set, randomly selects one of these blocks for replacement. 
