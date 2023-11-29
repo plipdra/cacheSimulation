@@ -483,16 +483,4 @@ class ApplicationGUI extends JFrame {
         cbTracing.addItemListener(listener);
     }
 
-
-    public static void main(String[] args) throws InterruptedException {
-        System.out.println("ye");
-        ApplicationGUI gui = new ApplicationGUI();
-        System.out.println("yuh");
-        Thread.sleep(2000);
-        gui.clearCache();
-        gui.clearStats();
-        gui.setTaLogText("");
-
-    }
-
 }
