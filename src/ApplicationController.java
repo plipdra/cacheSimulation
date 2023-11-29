@@ -21,7 +21,6 @@ public class ApplicationController implements ActionListener, ItemListener {
     private int cacheHitCount;
     private int cacheMissCount;
 
-    private int totalMemoryAccessCount; // in ns
     private final int cacheBlockSize = 64; // Number of words in a cache block
     private Random random; // Random number generator for random replacement
 
@@ -44,7 +43,6 @@ public class ApplicationController implements ActionListener, ItemListener {
         this.memoryAccessCount = 0;
         this.cacheHitCount = 0;
         this.cacheMissCount = 0;
-        this.totalMemoryAccessCount = 0;
         this.strTextFile = "";
         this.strFileName = "";
         this.sbTextFile = new StringBuilder(strTextFile);
@@ -69,7 +67,6 @@ public class ApplicationController implements ActionListener, ItemListener {
         memoryAccessCount = 0;
         cacheHitCount = 0;
         cacheMissCount = 0;
-        totalMemoryAccessCount = 0;
         strFileName = "";
         strTextFile = "";
         sbTextFile = new StringBuilder(strTextFile);
@@ -276,14 +273,12 @@ public class ApplicationController implements ActionListener, ItemListener {
 
         if (currentSetCache.contains(memoryAddress)) {
             cacheHitCount++;
-            totalMemoryAccessCount += 1; // Cache access time: 1 ms
             String hit = memoryAddress + " is a HIT! Data found in: " + setIndex + ", " + currentSetCache.indexOf(memoryAddress) + "\n\n";
             System.out.println(hit);
             appGui.appendTaLogText(hit);
             sbTextFile.append(hit);
         } else {
             cacheMissCount++;
-            totalMemoryAccessCount += 10; // Simulated main memory access time: 10 ms
 
             if (currentSetCache.size() >= setSize) {
                 // Randomly select an index to replace
